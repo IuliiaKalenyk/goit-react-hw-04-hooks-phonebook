@@ -9,9 +9,7 @@ import { Section } from './components/Section/Section';
 import { Container } from './components/Container/Container';
 
 function App() {
-  const [contacts, setContacts] = useState(() => {
-    return JSON.parse(localStorage.getItem('contacts')) ?? ContactList;
-  });
+  const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
   const firstUse = useRef(true);
 

@@ -14,16 +14,13 @@ function App() {
   const firstUse = useRef(true);
 
   useEffect(() => {
-    if (firstUse.current) {
-      const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
-
-      if (parsedContacts) {
-        setContacts(parsedContacts);
-      }
-
+    const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
+    if (firstUse.current && localStorage) {
+      setContacts(parsedContacts);
       firstUse.current = false;
       return;
     }
+
     localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
